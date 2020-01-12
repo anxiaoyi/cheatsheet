@@ -49,7 +49,7 @@ public class HtmlGeneratorUtil {
             String r = merge(template, ctx);
 
             String htmlName = saveFolder + File.separator + name;
-            FileUtils.write(new File(htmlName.toLowerCase()), r, "UTF-8");
+            FileUtils.write(new File(htmlName.toLowerCase() + ".html"), r, "UTF-8");
         }
 
         // ===========================================
@@ -57,7 +57,7 @@ public class HtmlGeneratorUtil {
         // ===========================================
         List<Sheet> resourceList = Arrays.asList(markdownFiles).stream().map(e -> {
             String name = e.getName().replace(".md", "");
-            String link = "/" + name.toLowerCase();
+            String link = "/" + name.toLowerCase() + ".html";
 
             return new Sheet(link, name);
         }).collect(Collectors.toList());
