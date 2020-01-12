@@ -14,9 +14,7 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Gradle
-      run: ./gradlew build
-    - name: Run java main
-      run: java -cp java com.zk.cheatsheet.MainApp
+      run: ./gradlew run
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
