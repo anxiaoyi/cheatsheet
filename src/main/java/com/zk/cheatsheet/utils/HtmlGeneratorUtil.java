@@ -1,5 +1,6 @@
 package com.zk.cheatsheet.utils;
 
+import com.zk.cheatsheet.bean.Sheet;
 import org.apache.commons.io.FileUtils;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -9,6 +10,9 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class HtmlGeneratorUtil {
 
@@ -42,18 +46,37 @@ public class HtmlGeneratorUtil {
             ctx.put("keywords", name + " cheat sheet");
             ctx.put("content", html);
 
-            StringWriter sw = new StringWriter();
-            template.merge(ctx, sw);
-            String r = sw.toString();
+            String r = merge(template, ctx);
 
             String htmlName = saveFolder + File.separator + name;
-            FileUtils.write(new File(htmlName.toLowerCase() + ".html"), r, "UTF-8");
+            FileUtils.write(new File(htmlName.toLowerCase()), r, "UTF-8");
         }
 
         // ===========================================
-        // 拷贝其他资源
+        // 生成所有 index.html 文件
         // ===========================================
-        copyFile(markdownFolder + File.separator + "index.html", saveFolder + File.separator + "index.html");
+        List<Sheet> resourceList = Arrays.asList(markdownFiles).stream().map(e -> {
+            String name = e.getName().replace(".md", "");
+            String link = "/" + name.toLowerCase();
+
+            return new Sheet(link, name);
+        }).collect(Collectors.toList());
+
+        template = velocityEngine.getTemplate(markdownFolder + File.separator + "index.html");
+        VelocityContext ctx = new VelocityContext();
+        ctx.put("resourceList", resourceList);
+        String index = merge(template, ctx);
+
+        // ===========================================
+        // 拷贝 index.html 资源
+        // ===========================================
+        FileUtils.write(new File(saveFolder + File.separator + "index.html"), index, "UTF-8");
+    }
+
+    private static String merge(Template template, VelocityContext ctx) {
+        StringWriter sw = new StringWriter();
+        template.merge(ctx, sw);
+        return sw.toString();
     }
 
     private static void copyFile(String srcPath, String targetPath) throws IOException {
