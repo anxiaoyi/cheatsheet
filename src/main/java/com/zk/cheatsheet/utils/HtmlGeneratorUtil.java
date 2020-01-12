@@ -47,7 +47,7 @@ public class HtmlGeneratorUtil {
             String r = sw.toString();
 
             String htmlName = saveFolder + File.separator + name;
-            FileUtils.write(new File(htmlName + ".html"), r, "UTF-8");
+            FileUtils.write(new File(htmlName.toLowerCase() + ".html"), r, "UTF-8");
         }
 
         // ===========================================

@@ -10,7 +10,7 @@ public class MainApp {
 
     public static void main(String...args) {
         try {
-            HtmlGeneratorUtil.generate(FOLDER, "site");
+            HtmlGeneratorUtil.generate(FOLDER, "build/site");
         } catch (IOException e) {
             e.printStackTrace();
         }
