@@ -40,6 +40,16 @@
 			display: grid;
 			grid-template-columns: repeat(auto-fill, 112px);
 			align-self: center;
+			justify-items: center;
+			}
+
+			#tiles.a {
+background-color: #FFF;
+			border-radius: 4px;
+			}
+
+			#tiles.a:hover {
+			background-color: #0000004f;
 			}
 
 			img.tile-icon {
@@ -49,6 +59,9 @@
 			}
 
 			@media only screen and (min-width: 0px) and (max-width: 768px) {
+			#logo {
+			margin-top:0px;}
+
     #logo-default {
     left: 10%;
     width: 80%;
