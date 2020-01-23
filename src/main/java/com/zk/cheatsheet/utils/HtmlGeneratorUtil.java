@@ -24,6 +24,14 @@ public class HtmlGeneratorUtil {
                 new File("docs" + File.separator + "cheatsheet_logo.png"),
                 new File(saveFolder)
         );
+        FileUtils.copyFileToDirectory(
+                new File("docs" + File.separator + "vim.png"),
+                new File(saveFolder)
+        );
+        FileUtils.copyFileToDirectory(
+                new File("docs" + File.separator + "docker.jpeg"),
+                new File(saveFolder)
+        );
     }
 
     public static void generate(String markdownFolder, String saveFolder) throws IOException {
