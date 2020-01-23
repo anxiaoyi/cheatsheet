@@ -20,6 +20,10 @@ public class HtmlGeneratorUtil {
         FileUtils.copyFileToDirectory(
                 new File("docs" + File.separator + "index.html"), new File(saveFolder)
         );
+        FileUtils.copyFileToDirectory(
+                new File("docs" + File.separator + "cheatsheet_logo.png"),
+                new File(saveFolder)
+        );
     }
 
     public static void generate(String markdownFolder, String saveFolder) throws IOException {
