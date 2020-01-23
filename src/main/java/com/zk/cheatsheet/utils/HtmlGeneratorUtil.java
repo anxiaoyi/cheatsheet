@@ -16,6 +16,12 @@ import java.util.stream.Collectors;
 
 public class HtmlGeneratorUtil {
 
+    public static void copy(String saveFolder) throws IOException {
+        FileUtils.copyFileToDirectory(
+                new File("docs" + File.separator + "index.html"), new File(saveFolder)
+        );
+    }
+
     public static void generate(String markdownFolder, String saveFolder) throws IOException {
         // ===========================================
         // 列举所有 markdown 文件
