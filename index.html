@@ -25,14 +25,27 @@
 			}
 
 			#logo-default {
-			background-image: url('/cheatsheet_logo.png');
-
+			background-size: cover;
+    background-image: url(/cheatsheet_logo.png);
     background-repeat: no-repeat;
     bottom: 38px;
     height: 92px;
-    left: calc(50% - 272px/2);
+    left: calc(50% - 350px/2);
     position: absolute;
-    width: 272px;
+    width: 350px;
+			}
+
+			#tiles {
+			width: 560px;
+			display: grid;
+			grid-template-columns: repeat(auto-fill, 112px);
+			align-self: center;
+			}
+
+			img.tile-icon {
+			border-radius: 50%;
+			width: 48px;
+			height: 48px;
 			}
 		</style>
 		<meta itemprop="description" content="All developer cheat sheets, quick references.">
@@ -43,6 +56,17 @@
 			<div id="logo-default" title="CheatSheet">
 			</div>
 		</div>
+
+		<div id="tiles">
+			<a target="_blank" href="https://app.yinxiang.com/fx/17ce323c-0cea-4b02-a7bd-112b57351c8d">
+				<img class="tile-icon" src="/vim.png">
+			</a>
+			<a target="_blank" href="https://app.yinxiang.com/fx/0246e0b1-19af-4f73-bccf-f02081d07064">
+				<img class="tile-icon" src="/docker.jpeg">
+			</a>
+
+		</div>
+
 	</div>
 	</body>
 </html>
