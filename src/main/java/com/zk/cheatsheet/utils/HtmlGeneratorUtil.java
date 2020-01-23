@@ -17,21 +17,18 @@ import java.util.stream.Collectors;
 public class HtmlGeneratorUtil {
 
     public static void copy(String saveFolder) throws IOException {
-        FileUtils.copyFileToDirectory(
-                new File("docs" + File.separator + "index.html"), new File(saveFolder)
-        );
-        FileUtils.copyFileToDirectory(
-                new File("docs" + File.separator + "cheatsheet_logo.png"),
-                new File(saveFolder)
-        );
-        FileUtils.copyFileToDirectory(
-                new File("docs" + File.separator + "vim.png"),
-                new File(saveFolder)
-        );
-        FileUtils.copyFileToDirectory(
-                new File("docs" + File.separator + "docker.jpeg"),
-                new File(saveFolder)
-        );
+        String[] filePathArray = new String[] {
+                "index.html",
+                "cheatsheet_logo.png",
+                "vim.png",
+                "docker.jpeg"
+        };
+
+        for (String filePath : filePathArray) {
+            FileUtils.copyFileToDirectory(
+                    new File("docs" + File.separator + filePath), new File(saveFolder)
+            );
+        }
     }
 
     public static void generate(String markdownFolder, String saveFolder) throws IOException {
