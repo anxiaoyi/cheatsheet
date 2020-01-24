@@ -17,22 +17,10 @@ import java.util.stream.Collectors;
 public class HtmlGeneratorUtil {
 
     public static void copy(String saveFolder) throws IOException {
-        String[] filePathArray = new String[] {
-                "index.html",
-                "index.css",
-                
-                "cheatsheet_logo.png",
+        File target = new File(saveFolder);
 
-                "vim.jpeg",
-                "docker.jpeg",
-                "terminal.svg",
-                "vscode.png"
-        };
-
-        for (String filePath : filePathArray) {
-            FileUtils.copyFileToDirectory(
-                    new File("docs" + File.separator + filePath), new File(saveFolder)
-            );
+        for (File origin : new File("docs").listFiles()) {
+            FileUtils.copyFileToDirectory(origin, target);
         }
     }
 
