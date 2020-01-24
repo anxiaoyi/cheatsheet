@@ -19,9 +19,14 @@ public class HtmlGeneratorUtil {
     public static void copy(String saveFolder) throws IOException {
         String[] filePathArray = new String[] {
                 "index.html",
+                "index.css",
+                
                 "cheatsheet_logo.png",
-                "vim.png",
-                "docker.jpeg"
+
+                "vim.jpeg",
+                "docker.jpeg",
+                "terminal.svg",
+                "vscode.png"
         };
 
         for (String filePath : filePathArray) {
