@@ -18,7 +18,7 @@
     background-size: cover;
     background-image: url(/cheatsheet_logo.png);
     background-repeat: no-repeat;
-    bottom: 38px;
+    bottom: 58px;
     height: 92px;
     left: calc(50% - 350px/2);
     position: absolute;
@@ -55,7 +55,6 @@ img.tile-icon {
         left: 5%;
         width: 90%;
         height: 75px;
-        bottom: 58px;
     }
     #tiles {
         width: 100%;
