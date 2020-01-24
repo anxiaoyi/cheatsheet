@@ -1,0 +1,64 @@
+#contents {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+#logo {
+    flex-shrink: 0;
+    height: 238px;
+    margin-top: 56px;
+    min-height: fit-content;
+    position: relative;
+}
+
+#logo-default {
+    background-size: cover;
+    background-image: url(/cheatsheet_logo.png);
+    background-repeat: no-repeat;
+    bottom: 38px;
+    height: 92px;
+    left: calc(50% - 350px/2);
+    position: absolute;
+    width: 350px;
+}
+
+#tiles {
+    width: 560px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 112px);
+    align-self: center;
+    justify-items: center;
+}
+
+#tiles a {
+    background-color: #FFF;
+    border-radius: 4px;
+}
+
+#tiles a:hover {
+    background-color: #0000004f;
+}
+
+img.tile-icon {
+    width: 48px;
+    height: 48px;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+    #logo {
+        margin-top: 0px;
+    }
+    #logo-default {
+        left: 10%;
+        width: 80%;
+        height: 75px;
+        bottom: 58px;
+    }
+    #tiles {
+        width: 100%;
+        grid-template-columns: repeat(4, 25%);
+    }
+}
